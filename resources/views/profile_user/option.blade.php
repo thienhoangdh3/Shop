@@ -16,7 +16,7 @@
               <a href="{{route('forget')}}">
                   <i class="fas fa-sign-in-alt"></i>
                   Lịch Sử
-              </a>
+              </a> 
           </li>
           <li>
                <a href="{{route('forget')}}">
