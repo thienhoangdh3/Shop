@@ -7,7 +7,7 @@
              </a>
         </li>
         <li>
-              <a href="{{route('registration')}}">
+              <a href="{{route('my-order', $data->id)}}">
                    <i class="fas fa-sign-in-alt"></i>
                    Đơn Hàng Của Tôi
               </a>

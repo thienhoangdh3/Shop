@@ -50,6 +50,6 @@ class User extends Authenticatable
 
     public function reciept()
     {
-        return $this->hasMany( 'App\Models\Reciept' , 'user_id', 'id' );
+        return $this->hasMany('App\Models\Reciept' , 'user_id', 'id' );
     }
 }

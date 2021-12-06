@@ -37,6 +37,7 @@ Route::post('forget',       [LoginController::class, 'postForget'])         ->na
 
 Route::prefix('profile')->group(function () {
     Route::get('/', [ProfileController::class, 'index']) ->name('user-profile');
+    Route::get('my-order/{id}', [ProfileController::class, 'myOrder'])->name('my-order');
 });
 
 // Trang Admin
