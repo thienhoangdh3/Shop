@@ -6,15 +6,11 @@
         <div class="collapse navbar-collapse col-sm-4 justify-content-end" id="navbarNavDropdown">
             <ul class="navbar-nav center ">
               <li class="nav-item active ml-2">
-                <a class="nav-link text-white" href="#">Trang Chủ <span class="sr-only">(current)</span></a>
+                <a class="nav-link text-white" href="{{ route('home') }}">Trang Chủ <span class="sr-only">(current)</span></a>
               </li>
 
               <li class="nav-item ml-2" >
-                <a class="nav-link text-white" href="#">Nạp Ví</a>
-              </li>
-
-              <li class="nav-item ml-2">
-                <a class="nav-link text-white" href="#">Lịch Sử</a>
+                <a class="nav-link text-white" href="#" data-toggle="modal" data-target="#recharge">Nạp Ví</a>
               </li>
             </ul>
         </div>
@@ -32,19 +28,19 @@
                     @if (!session('avatar'))
                         <img class="profile-icon" src="https://salt.tikicdn.com/ts/upload/67/de/1e/90e54b0a7a59948dd910ba50954c702e.png">
                     @else
-                        <img class="profile-icon" src="{{session('avatar')}}">
+                        <img class="profile-icon" src="{{ asset('storage/avatars/'.session('avatar')) }}">
                     @endif
                     
-                    <span class="text-white d-flex" id="dropMenuUser" >
+                    <a class="text-white d-flex" id="dropMenuUser" >
                             <span>
                                 {{session('fullname')}}
                             </span>
                             <img class="arrowIcon" src="https://salt.tikicdn.com/ts/upload/d7/d4/a8/34939af2da1ceeeae9f95b7485784233.png">
-                    </span>
+                    </a>
                     
                     <div class="dropdown-menu" aria-labelledby="dropMenuUser">
                         <a class="dropdown-item" href="{{route('user-profile')}}">Thông Tin Của Tôi</a>
-                        <a class="dropdown-item" href="#">Đơn Hàng Của Tôi</a>
+                        <a class="dropdown-item" href="{{ route('my-order', session('id')) }}">Đơn Hàng Của Tôi</a>
                         <hr>
                         <a class="dropdown-item bg-danger text-white" href="{{ route('logout') }}">
                             Đăng Xuất
@@ -78,3 +74,46 @@
         </div>
     </div>
 </nav>
+
+<div class="modal fade" id="recharge" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nạp tiền từ ATM hoặc Ví điện tử</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body " >
+            <div class="form-group row ">
+              <label class="col-md-4 text-md-right font-weight-bold" >Vietcombank: </label>
+              <div class="col-sm-8">
+                1234567890
+               </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-4 text-md-right font-weight-bold" >Viettinbank: </label>
+              <div class="col-sm-8">
+                1234567890
+               </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-md-4 text-md-right font-weight-bold" >Momo: </label>
+              <div class="col-sm-8">
+                1234567890
+               </div>
+            </div>
+<hr>
+            <p><strong><span style="color:#000000">Khi chuyển tiền Quý khách vui lòng ghi</span>&nbsp;<span style="color:#e74c3c">CHÍNH XÁC NỘI DUNG:</span><br>
+<span style="color:#e74c3c">Tên Shop +&nbsp;emailcủa bạn</span><br>
+Ví dụ:&nbsp;email của bạn là <span style="color:#e74c3c">abc@gmail.com </span>thì&nbsp;bạn cần ghi nội dung sau:<br>
+<span style="color:#e74c3c">teamshop abc@gmail.com</span><br>
+<span style="color:#000000">Sau khi chuyển xong, vui lòng chờ trong vài phút,</span>&nbsp;<a href="{{ route('home') }}" target="_blank"><span style="color:#2980b9">TeamShop - Game Online</span></a>&nbsp;<span style="color:#000000">&nbsp;sẽ cộng tiền vào tài khoản của bạn​​​​​​.</span></strong></p>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

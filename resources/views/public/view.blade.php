@@ -16,7 +16,9 @@
         </div>
 
         <div class="col-md-4 text-right">
-          <a href="{{ route('home.buy', $datas->id) }}" class="btn btn-success"><h5 class="pt-2 py-2" id="buy"><b<i class="fas fa-shopping-cart"></i> MUA NGAY </b></h3></a>
+          @if($datas->status == 1)
+              <a href="{{ route('home.buy', $datas->id) }}" class="btn btn-success"><h5 class="pt-2 py-2" id="buy"><b<i class="fas fa-shopping-cart"></i> MUA NGAY </b></h3></a>
+          @endif
         </div>
       </div>
 

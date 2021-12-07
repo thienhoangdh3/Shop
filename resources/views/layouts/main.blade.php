@@ -58,7 +58,7 @@
                                         </div>
 
                                          Product price-->
-                                        <span class="text-danger text-decoration-line-through">Giá: {{number_format($data->price,0,",",".") }}.000 VNĐ</span>
+                                        <span class="text-danger text-decoration-line-through">Giá: {{ number_format($data->price,0,",",".") }}.000 VNĐ</span>
                                     </div>
                                 </div>
                                 <!-- Product actions-->

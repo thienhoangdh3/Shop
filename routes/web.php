@@ -37,6 +37,8 @@ Route::post('forget',       [LoginController::class, 'postForget'])         ->na
 
 Route::prefix('profile')->group(function () {
     Route::get('/', [ProfileController::class, 'index']) ->name('user-profile');
+    Route::get('edit', [ProfileController::class, 'edit'])->name('user-edit');
+    Route::post('edit/{id}', [ProfileController::class, 'update'])->name('user-update');
     Route::get('my-order/{id}', [ProfileController::class, 'myOrder'])->name('my-order');
 });
 
