@@ -27,8 +27,10 @@
                 <div class="dropdown d-flex">
                     @if (!session('avatar'))
                         <img class="profile-icon" src="https://salt.tikicdn.com/ts/upload/67/de/1e/90e54b0a7a59948dd910ba50954c702e.png">
-                    @else
+                    @elseif(file_exists(asset('storage/avatars/'.session('avatar'))))
                         <img class="profile-icon" src="{{ asset('storage/avatars/'.session('avatar')) }}">
+                    @else
+                      <img class="profile-icon" src="{{ session('avatar') }}">
                     @endif
                     
                     <a class="text-white d-flex" id="dropMenuUser" >

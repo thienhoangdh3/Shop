@@ -36,10 +36,12 @@ Route::get('forget',        [LoginController::class, 'forget'])             ->na
 Route::post('forget',       [LoginController::class, 'postForget'])         ->name('post.forget');
 
 Route::prefix('profile')->group(function () {
-    Route::get('/', [ProfileController::class, 'index']) ->name('user-profile');
-    Route::get('edit', [ProfileController::class, 'edit'])->name('user-edit');
-    Route::post('edit/{id}', [ProfileController::class, 'update'])->name('user-update');
-    Route::get('my-order/{id}', [ProfileController::class, 'myOrder'])->name('my-order');
+    Route::get('/', [ProfileController::class, 'index'])                    ->name('user-profile');
+    Route::get('edit', [ProfileController::class, 'edit'])                  ->name('user-edit');
+    Route::post('edit/{id}', [ProfileController::class, 'update'])          ->name('user-update');
+    Route::get('change-pass', [ProfileController::class, 'changePass'])     ->name('user.change.pass');
+    Route::post('change-pass/{id}', [ProfileController::class, 'postChangePass'])->name('user.post.pass');
+    Route::get('my-order', [ProfileController::class, 'myOrder'])      ->name('my-order');
 });
 
 // Trang Admin
@@ -47,8 +49,12 @@ Route::prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'index']) ->name('admin.index');
 
     Route::prefix('users')->group(function () {
-        Route::get ('/', [AdminController::class, 'listUser'])->name('admin.user.list');
-        Route::post('/', [AdminController::class, 'postFile'])->name('postfile');
+        Route::get ('/', [AdminController::class, 'listUser'])           ->name('admin.user.list');
+        Route::post('/', [AdminController::class, 'postFile'])           ->name('postfile');
+        Route::get ('create', [AdminController::class, 'create'])        ->name('admin.user.create');
+        Route::post('store', [AdminController::class, 'store'])          ->name('admin.user.store');
+        Route::get ('edit/{id}', [AdminController::class, 'edit'])       ->name('admin.user.edit');
+        Route::post('update/{id}', [AdminController::class, 'update'])   ->name('admin.user.update');
     });
     
     Route::prefix('nick')->group(function () {

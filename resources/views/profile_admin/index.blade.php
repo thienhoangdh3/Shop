@@ -54,7 +54,7 @@
             <span class="tooltip">Nick</span>
         </li>
 
-        <li>
+        <!-- <li>
             <a href="#">
                 <i class='bx bxs-credit-card-front'></i>
                 <span class="links_name">Thẻ cào</span>
@@ -84,7 +84,7 @@
                 <span class="links_name">Setting</span>
             </a>
             <span class="tooltip">Setting</span>
-        </li>
+        </li> -->
 
         <li class="profile">
             <div class="profile-details">

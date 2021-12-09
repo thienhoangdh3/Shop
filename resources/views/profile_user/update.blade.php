@@ -19,7 +19,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-12">
                     <div class="card">
-                        <form action="{{route('user-update', $id)}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('user-update', $id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card-header h4"><b>Thông Tin Cá Nhân</b> </div>
                             <div class="card-body row">
@@ -56,7 +56,7 @@
                                         @if (!isset($data->avatar))
                                             <img src="https://salt.tikicdn.com/ts/upload/67/de/1e/90e54b0a7a59948dd910ba50954c702e.png">
                                         @else
-                                            <img class="d-block" src="{{$data->avatar}}">
+                                            <img class="d-block" src="{{ asset('storage/avatars/' .  $data->avatar) }}">
                                         @endif
                                     </div>
                                     <div class="mt-3">

@@ -10,7 +10,7 @@
             </li>
             >
             <li class="icon active d-inline">
-                <a href="{{route('my-order', $id )}}">Đơn hàng của tôi</a>
+                <a href="{{route('my-order' )}}">Đơn hàng của tôi</a>
             </li>
         </ul>
     </div>
