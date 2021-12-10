@@ -88,6 +88,7 @@ class AdminNickController extends Controller
             'notes' => $request->notes,
             'username' => $request->username,
             'password' => $request->password,
+            'status'   => '1' ,
         ]);
 
         return redirect()->back()->with('alert_success', 'Thêm nick thành công!');

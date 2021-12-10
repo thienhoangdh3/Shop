@@ -68,8 +68,11 @@
                             </div>
                         </div>
                     @endforeach
-                @endif
+                    
+                
             </div>
         </div>
+        {{ $datas->links() }}
+        @endif
     </section>
 @endsection

@@ -11,7 +11,7 @@ class HomePageController extends Controller
 {
     public function index()
     {
-        $datas = Nick::where('status', '1')->orderBy('created_at')->get();
+        $datas = Nick::where('status', '1')->orderBy('created_at')->paginate(12);
         return view('layouts.main')->with(compact('datas'));
     }
 

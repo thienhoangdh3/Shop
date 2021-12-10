@@ -16,21 +16,13 @@
         </div>
     
         <div class="navbar-collapse col-sm-2 justify-content-start">
-            {{-- <form class="form-inline ml-2 row justify-content-left form-search row">
-                <input class="form-control col-8 mr-sm-2 input-search" type="search" placeholder="Tìm Kiếm" aria-label="Search">
-                <button class="btn btn-light my-2 my-sm-0 col-3 btn-search " type="submit">
-                    <img class="icon-search" src="https://salt.tikicdn.com/ts/upload/ed/5e/b8/8538366274240326978318348ea8af7c.png">Tìm Kiếm
-                </button>
-            </form> --}}
 
             @if(session('fullname'))
-                <div class="dropdown d-flex">
+                <div class="dropdown py-1 d-flex">
                     @if (!session('avatar'))
                         <img class="profile-icon" src="https://salt.tikicdn.com/ts/upload/67/de/1e/90e54b0a7a59948dd910ba50954c702e.png">
-                    @elseif(file_exists(asset('storage/avatars/'.session('avatar'))))
-                        <img class="profile-icon" src="{{ asset('storage/avatars/'.session('avatar')) }}">
                     @else
-                      <img class="profile-icon" src="{{ session('avatar') }}">
+                        <img class="profile-icon a" src="{{ asset('storage/avatars/'.session('avatar')) }}"/>
                     @endif
                     
                     <a class="text-white d-flex" id="dropMenuUser" >

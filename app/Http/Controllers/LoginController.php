@@ -56,7 +56,6 @@ class LoginController extends Controller
 
     public function loginGoogleCallback()
     {
-
         try {
             $user = Socialite::driver('google')->user();
             $isUser = User::where('google_id', $user->id)->first();
@@ -66,11 +65,18 @@ class LoginController extends Controller
                 session()->put($session);
                 return redirect(route('home'));
             }else{
+
+                $url = $user->avatar;
+                $contents = file_get_contents($url);
+                $name = $user->id . '.png';
+                $save = 'avatars/' . $user->id . '.png';
+                Storage::put($name, $contents);
+
                 $createUser = User::create([
                     'fullname' => $user->name,
                     'email' => $user->email,
                     'google_id' => $user->id,
-                    'avatar' => $user->avatar,
+                    'avatar' => $name,
                     'password' => bcrypt('123456')
                 ]);
                 

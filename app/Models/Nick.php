@@ -12,7 +12,7 @@ class Nick extends Model
     ];
 
     protected $table = 'nicks';
-    public $timestamps = false; 
+
     use HasFactory;
 
     public function nick_class()

@@ -60,7 +60,10 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                <a href="{{ route('nick.edit', $data->id) }}" class="btn btn-primary">Sửa</a>
+                @if (isset($data))
+                  <a href="{{ route('nick.edit', $data->id) }}" class="btn btn-primary">Sửa</a>
+                @endif
+                
               </div>
             </div>
           </div>
